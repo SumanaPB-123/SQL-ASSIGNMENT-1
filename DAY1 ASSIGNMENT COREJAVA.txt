@@ -1,0 +1,215 @@
+//Question 1:
+
+package day1assignment;
+
+public class Greater_number {
+	
+		public static void main(String arg[]) {
+			//Declaring variables for 3 numbers
+			int x=55,y=18,z=100;
+			//comparing x with y and z
+			if(x>=y&&x>=z) {
+				System.out.println(x+ "is the greatest number");
+			}
+			//comparing y with x and z
+			else if(y>=x&&y>=z) {
+				System.out.println(y+ "is the greatest number");
+			}
+			
+			else {
+				System.out.println(z+ "is the greatest number");
+			}
+			
+			
+		}
+	}
+
+
+//Question 2:
+
+package day1assignment;
+
+public class Cube {
+	public static void main(String args[]) {
+		 int i, cube;
+		 i=4;
+		 cube=i*i*i; //finds cube of a number
+		 System.out.println( "The cube of the number is:" +cube);
+		
+
+}
+}
+
+//Question 3:
+
+package day1assignment;
+
+public class Sum_of_array {
+	public static void main(String args[]) {
+		int  i, sum=0;
+		int arr[]= {1, 3,5,7,9,11};
+		for(i=0;i<arr.length;i++) {
+			sum=sum+arr[i];   //sums up all the elements of an array
+			
+		}
+		System.out.println(sum);
+	}
+
+
+}
+
+//Question 4:
+
+package day1assignment;
+
+public class Finding_array_element {
+	public static void main(String args[]) {
+	 
+		int i,n=10;
+		int arr[]= {1, 3,5,7,9};
+		for(i=0; i<arr.length;i++) {
+			if(arr[i]==n)      //Traverses the array and checks for the element in array
+			{	System.out.println("Element found");
+			break;
+			}
+			else if(i==(arr.length-1))
+			{
+				System.out.println("Element Not Found");
+				break;
+			}
+			else
+			{
+				continue;
+			}
+	}
+	}
+}
+
+//Question 5:
+
+package day1assignment;
+
+public class Reverse_array {
+	public static void main(String args[]) {
+	 int i;
+		int num[]= { 12, 13, 16,18,25};
+		for(i=num.length-1 ;i>=0;i--) { /*Traverses the array from last element 
+		System.out.println( num[i]);      and prints from back          */
+	}
+	}
+}
+
+
+
+//Question 6:
+
+
+package day1assignment;
+
+public class Dollar_Replace {
+	public static void main(String[] args) {
+		String str = "My Name is Sumana";
+		char c[]=str.toCharArray();
+		
+		for(int i=0;i<c.length;i++)
+		{
+			if(c[i]=='a' || c[i]=='e' || c[i]=='i' || c[i]=='o' || c[i]=='u' )//Searching for vowel
+			{
+				c[i]='$';// Replaces vowel by Dollar symbol
+			}
+		}
+		for(int i=0;i<c.length;i++)
+		{
+			System.out.print(c[i]);
+		}
+
+	}
+
+}
+
+
+//Question 7:
+
+package day1assignment;
+
+public class Duplicate {
+	public static void main(String arg[])
+	{
+	  int a[]= {7,9,8,9,7,5,2,5}; 
+	     for(int i=0;i<a.length;i++) // 'for' loop for i index=0
+	     {
+	    	 for(int j=i+1;j<a.length;j++) 
+	    		                     //'for' loop for j index=0+1 
+	    	 {
+	    		 if(a[i]==a[j])    // compares two array  two find duplicate element
+	    			 
+	    		 System.out.print(a[j]+" ");  //prints the duplicate values
+	    	 }
+	     }
+	 }  
+
+}
+
+
+//Question 8:
+
+
+package day1assignment;
+
+public class Max_repeat {
+	public static void main(String[] args) {
+		int arr[] = {1, 2,3,4,1,1,1,2,2,};
+		int max = 0;
+		int element = 0;
+		for(int i=0;i<arr.length;i++) 
+		{
+			int count=1;
+			for(int j=i+1;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j]) //checks for the repeated elements and increases count
+				{
+					count++;
+				}
+			}
+			if(max<count)
+			{
+				max=count;
+				element=arr[i];
+			}
+		}
+
+		System.out.println("The Max Repeated Number is and count is : "+element+", " +max);
+	}
+
+
+}
+
+//Question 9:
+
+package day1assignment;
+
+public class Two_Large_number {
+	public static void main(String[] args) {
+		int arr[] = {10,20,30,40,50};
+		int max1 = arr[0];
+		int max2 = arr[1];
+		for(int i=2;i<arr.length;i++)
+		{
+			if(arr[i]>max1)
+			{
+				int temp = max1;
+				max1 = arr[i];
+				max2 = temp;
+			}
+			else if(arr[i]>max2 && arr[i]<=max1)
+			{
+				max2 = arr[i];
+			}
+		}
+
+		System.out.println("First Largest No. is : "+max1);
+		System.out.println("Second Largest No. is : "+max2);
+
+	}
+
+}
