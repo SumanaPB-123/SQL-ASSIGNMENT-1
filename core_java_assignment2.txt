@@ -145,46 +145,36 @@ int weight; double getSalePrice();  // If weight > 2000, 10% discount. Otherwi
 package day2assignment;
 
 public class Truck  extends Car{
+	
 	int weight;
+		Truck(int speed,double regularPrice,String color,int weight)
+		{
+			super(speed,regularPrice,color);
+			this.weight=weight;
+		}
+		public double getSalePrice()
+		{
+			if(weight>2000)
+			{
+				return super.getSalePrice()-(0.1*super.getSalePrice());
+			}
+			else
+			{
+				return super.getSalePrice()-(0.2*super.getSalePrice());
+			}
+		}
+		public static void main(String args [])
+		{
+			Truck t=new Truck(200,1400000,"black",2500);
+			System.out.println(t.getSalePrice());
+		}
+		
+		
 
-	Truck(){};
-	Truck(int a, String b,double c, int d)
-	{ 
-	 this.speed=a;
-	 this.color=b;
-	 this.regularPrice=c;
-	 this.weight=d;
-	}
-   
-	public double getSalePrice(int discount) {
-		
-		if (weight>2000)
-			discount=10;
-		else
-			discount=20;
-		return (this.regularPrice-(this.regularPrice*discount)/100);
-	}
-
-	
-		
-	
-	
-	public static void main(String args[]) {
-		Truck t1=new Truck();
-		t1.speed=100;
-		t1.color="White";
-		t1.regularPrice=200000;
-		t1.weight=1500;
-		t1.display();
-		System.out.println(t1.getSalePrice(0));
-		
-		Truck t2=new Truck(80,"Grey", 1000000, 2500
-		t2.display();
-		System.out.println(t2.getSalePrice(0));
 	}
 
-}
 
+	
 
 /*Create a subclass of Car class and name it as Ford.  The Ford class has the following fields and methods int year; int manufacturerDiscount; 
 double getSalePrice();  // From the sale price computed from Car class, subtract the manufacturerDiscount. */
@@ -259,15 +249,15 @@ package day2assignment;
 public class MyOwnAutoShop {
 	MyOwnAutoShop(int speed,double regularPrice,String color,int length)
 	{
-		super(speed,regularPrice,color,length);
+		super();
 	}
 	MyOwnAutoShop(int speed,double regularPrice,String color, int year, int manfacdisc)
 	{
-		super(speed,regularPrice,color,year,manfacdisc);
+		super();
 	}
 	MyOwnAutoShop(int speed,double regularPrice,String color)
 	{
-		super(speed,regularPrice,color);
+		super();
 	}
 	public static void main(String[] args) 
 	{
