@@ -1,0 +1,314 @@
+/*Create a Employee class with below properties and methods empId, empName,empSal and public void display(){} ,  
+public void salCal(){} implement the inheritance & polymorphism functionality for Manager ,Developer, Tester class override the SalCal function.*/ 
+
+
+package day3assignment;
+
+public class Employee {
+	
+		int EmpId;
+		String EmpName;
+		double EmpSal;
+		
+		
+		
+		public Employee() {};
+		 public Employee(int empId, String empName,double empSal) {
+		 EmpId=empId;
+		 EmpName=empName;
+		 EmpSal=empSal;
+		}
+		
+
+	}
+
+
+package day3assignment;
+
+
+public class Manager extends Employee implements Employee_Intrface {
+	
+	@Override
+	public double salCal(double TA, double HRA, double DA) {
+		return this.EmpSal+TA+HRA+DA;
+	}
+	@Override
+	public void display() {
+		System.out.println(EmpId);
+		System.out.println(EmpName);
+		System.out.println(EmpSal);
+	}
+	public static void main(String args[]) {
+		Manager m1=new Manager();
+		m1.EmpId=1999;
+		m1.EmpName="Sumana";
+		m1.EmpSal=90000;
+		m1.display();
+		System.out.println(m1.salCal(100,200,300));
+	}
+}
+
+package day3assignment;
+
+public class Developer extends Employee implements Employee_Intrface {
+	
+	@Override
+	public double salCal(double TA, double HRA, double DA) {
+		return this.EmpSal+TA+HRA+DA;
+	}
+	@Override
+	public void display() {
+		System.out.println(EmpId);
+		System.out.println(EmpName);
+		System.out.println(EmpSal);
+	}
+	public static void main(String args[]) {
+		Developer d1=new Developer();
+		d1.EmpId=1999;
+		d1.EmpName="Sumana";
+		d1.EmpSal=90000;
+		d1.display();
+		System.out.println(d1.salCal(50,150,300));
+	}
+}
+
+package day3assignment;
+
+public class Tester extends Employee implements Employee_Intrface {
+	
+	@Override
+	public double salCal(double TA, double HRA, double DA) {
+		return this.EmpSal+TA+HRA+DA;
+	}
+	@Override
+	public void display() {
+		System.out.println(EmpId);
+		System.out.println(EmpName);
+		System.out.println(EmpSal);
+	}
+	public static void main(String args[]) {
+		Tester t1=new Tester();
+		t1.EmpId=1999;
+		t1.EmpName="Sumana";
+		t1.EmpSal=90000;
+		t1.display();
+		System.out.println(t1.salCal(100,200,300));
+	}
+}
+
+/*Create a Shape class to draw a diagram like rectangle, square, triangle , with same properties like length , 
+height, width and calculate the radius  of it by overriding the method in respective class  */
+
+package day3assignment;
+
+public class Shape {
+float length;
+float width;
+float height;
+
+
+
+public Shape() {};
+ public Shape(float len, float wi, float he) {
+ this.length=len;
+ this.width=wi;
+ this.height=he;
+}
+}
+
+
+package day3assignment;
+
+public interface Shape_Interface {
+	public float area(float len,float wi,float he);
+}
+
+
+package day3assignment;
+
+public class Rectangle extends Shape implements Shape_Interface {
+	
+	Rectangle(){};
+	@Override
+	public float area(float len,float wi,float he) {
+		return len*width;
+	}
+
+	public static void main(String args[]) {
+		Rectangle r1=new Rectangle();
+		System.out.println( "Area of Rectangle is:"+ r1.area(10, 20, 0));
+	}
+}
+
+
+package day3assignment;
+
+public class Triangle extends Shape implements Shape_Interface{
+
+Triangle(){};
+	
+	@Override
+	public float area(float len,float wi,float he) {
+		return ((len*he)/2);
+	}
+
+	public static void main(String args[]) {
+		Triangle t1=new Triangle();
+		System.out.println( "Area of Triangle  is:"+ t1.area(10, 20, 30));
+	}
+}
+
+package day3assignment;
+
+public class Square  extends Shape implements Shape_Interface{
+
+	Square(){};
+	
+	@Override
+	public float area(float len,float wi,float he) {
+		return len*len;
+	}
+
+	public static void main(String args[]) {
+		Square s1=new Square();
+		System.out.println( "Area of Square is:"+ s1.area(10, 0, 0));
+	}
+
+}
+
+
+
+
+ 
+
+/*Create a custom exceptions to handle when the yearly salary of an employee is less than  1,00,000.*/ 
+
+ 
+
+package day3assignment;
+
+ class MyOwnException  extends Exception{
+	 MyOwnException (String s){
+		 super(s);
+	 }
+
+}
+
+public class salary_exception extends Employee{
+
+	
+	
+	 public double salCal(double TA, double HRA, double DA) throws MyOwnException  { 
+		
+	   if((this.EmpSal+TA+HRA+DA)*12 <100000)
+		   throw new MyOwnException("Annual Salary is less than One Lakh");
+	   else
+		   System.out.println("Annual Salary is greater than One Lakh");
+	   return (this.EmpSal+TA+HRA+DA)*12 ;
+		   }
+
+	 
+	
+		   public static void main(String args[]) throws MyOwnException {
+			   salary_exception s1= new  salary_exception();
+			   s1.EmpId=1234;
+			   s1.EmpName="Sumana";
+			   s1.EmpSal=1500;
+			   System.out.println(s1.salCal(1000, 1000, 1000));
+			  
+		   }
+}
+
+/*4th question*/
+
+package day3assignment;
+
+public class Employee {
+	
+		int EmpId;
+		String EmpName;
+		double EmpSal;
+		
+		
+		
+		public Employee() {};
+		 public Employee(int empId, String empName,double empSal) {
+		 EmpId=empId;
+		 EmpName=empName;
+		 EmpSal=empSal;
+		}
+		
+
+	}
+
+
+package day3assignment;
+
+public abstract class Employee1 {
+
+	int empID;
+	String empName;
+	String address;
+	double basicPay;
+	int leaveavailable;
+	
+	abstract double calculateSalary();
+}
+
+package day3assignment;
+
+public abstract class TechnicalEmployee extends Employee1 {
+	String techski;
+	
+	@Override
+	double calculateSalary() {
+		double salary;
+		double HRA=0.12*basicPay;
+		//TODO Auto-generated method stub
+		return salary=basicPay+HRA;
+		
+	}
+	@Override
+	public String toString() {
+		return "TechnicalEmployee [empID=" + empID + ",	empName=" +empName + "]";
+
+}
+	public static void main(String args[]) {
+		TechnicalEmployee t = new TechnicalEmployee();
+		t.basicPay=500;
+		t.empID=1234;
+		t.empName="Sumana";
+		System.out.println(t.toString());
+		System.out.println("The salary of technical employee= "+t.calculateSalary());
+	}
+}
+
+
+package day3assignment;
+
+public class Staff  extends Employee1{
+	String Title;
+	@Override
+	double calculateSalary() {
+		double salary;
+		double HRA=0.18*basicPay;
+		return salary=basicPay+HRA;
+	}
+    @Override
+    public String toString() {
+    	return"Staff [empID=" + empID + ", empName=" + empName + "]";
+    }
+    public static void main(String args[]) {
+    	Staff s=new Staff();
+    	s.basicPay=200;
+    	s.empID=1999;
+    	s.empName="Meghana";
+    	System.out.println(s.toString());
+    	System.out.println("The salary of staff is="+s.calculateSalary());
+    }
+}
+
+
+ 
+
+ 
