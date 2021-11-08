@@ -1,0 +1,200 @@
+/*Question1*/
+
+package Day4Assignment;
+
+public class Employee {
+	int Empid;
+	String Empname;
+	double Empsal;
+	public int getEmpid() {
+		return Empid;
+	}
+	public void setEmpid(int empid) {
+		Empid = empid;
+	}
+	public String getEmpname() {
+		return Empname;
+	}
+	public void setEmpname(String empname) {
+		Empname = empname;
+	}
+	public double getEmpsal() {
+		return Empsal;
+	}
+	public void setEmpsal(double empsal) {
+		Empsal = empsal;
+	}
+	@Override
+	public String toString() {
+		return "Employee [Empid=" + Empid + ", Empname=" + Empname + ", Empsal=" + Empsal + "]";
+	}
+	
+
+}
+
+
+package Day4Assignment;
+import java.util.List;
+
+
+public interface EmployeeInt {
+
+	 
+
+	public void addEmployee(Employee e); 
+
+	public void deleteEmployee(Employee e); 
+
+	public double yearSalary(Employee e1); 
+
+	public double appSalary(Employee e1) ;
+	public List<Employee>getEmployee();
+}
+
+
+package Day4Assignment;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+public class EmployeeImp1 extends Employee implements EmployeeInt{
+	List<Employee> l1=new LinkedList<>();
+	
+	@Override
+	public void addEmployee(Employee e) {
+		l1.add(e);
+	}
+	@Override
+    public List<Employee> getEmployee(){
+    	Iterator itr=l1.iterator();
+    	while(itr.hasNext()) {
+    		itr.next();
+    	}
+    	return l1;
+    }
+    @Override
+    public void deleteEmployee(Employee e) {
+    	//TODO Auto-generated method stub
+    }
+    @Override
+    public double yearSalary(Employee e1) {
+    	//TODO Auto-generated method stub
+    	return Empsal*12;
+    }
+    @Override
+    public double appSalary(Employee e1) {
+    	//TODO Auto-generated method stub
+    	if(Empsal<10000)
+    		return Empsal+5000;
+    	else
+    		return Empsal;
+    }
+}
+
+
+
+package Day4Assignment;
+
+public class UserEmployee extends Employee
+{
+	 public static void main(String args[]) {
+		 Employee e= new Employee();
+		 e.setEmpid(1234);
+		 e.setEmpname("Sumana");
+		 e.setEmpsal(45000);
+		 
+		 Employee e1= new Employee();
+		 e1.setEmpid(1235);
+		 e1.setEmpname("Meghana");
+		 e1.setEmpsal(60000);
+		 
+		 System.out.println(e);
+		 System.out.println(e1);
+		 
+		 EmployeeImp1 l1=new  EmployeeImp1();
+		// l1.addEmployee(l1);
+		 //l1.appSalary(l1);
+		 l1.setEmpid(1234);
+		 l1.setEmpsal(100);
+		 
+		 //System.out.println(l1.getEmployee());
+		 //System.out.println(l1);
+		 System.out.println(l1.yearSalary(l1));
+		 System.out.println(l1.appSalary(l1));
+		 System.out.println();
+	 }
+}
+
+
+/*Question2*/
+
+package Day4Assignment;
+
+public class Student  {
+	String name;
+	int stdid;
+	int stdmarks;
+	public Student() {}
+	public Student(String stdname, int stdid, int stdmarks) {
+		super();
+		this.name=stdname;
+		this.stdid=stdid;
+		this.stdmarks=stdmarks;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getStdid() {
+		return stdid;
+	}
+	public void setStdid(int stdid) {
+		this.stdid = stdid;
+	}
+	public int getStdmarks() {
+		return stdmarks;
+	}
+	public void setStdmarks(int stdmarks) {
+		this.stdmarks = stdmarks;
+	}
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", stdid=" + stdid + ", stdmarks=" + stdmarks + "]";
+	}
+
+}
+
+
+package Day4Assignment;
+
+
+	import java.util.ArrayList;
+	import java.util.Collection;
+	import java.util.List;
+
+	public class Teststudent {
+		public static void main(String[] args) 
+		{
+			 
+			
+			List<Student> studentlist=new ArrayList<Student>();
+		     studentlist.add(new Student("Sumana",107,100));
+		     studentlist.add(new Student("Meghana",109,110));
+		     studentlist.add(new Student("Impana",106,99));
+		     studentlist.add(new Student("Sindhu",105,98));
+		     studentlist.add(new Student("Sushma",108,101));
+		     System.out.println("Before sorting : ");
+		     //forEach for printing the list
+		     studentlist.forEach((s)->System.out.println(s));
+		     System.out.println("After sorting : ");
+		     
+		     studentlist.sort((Student s1,Student s2)->s2.getStdid()-s1.getStdid());
+		    studentlist.sort((Student s1,Student s2)->s2.getStdmarks()-s1.getStdmarks());
+		     studentlist.forEach((s)->System.out.println(s));
+		    
+		}
+	}
+
